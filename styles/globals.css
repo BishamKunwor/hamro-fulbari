@@ -28,6 +28,6 @@ body {
 
 @layer components {
   .textColor {
-    @apply text-white/80;
+    @apply text-white/90;
   }
 }
