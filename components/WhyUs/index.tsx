@@ -4,10 +4,10 @@ export default function WhyUs() {
       <h2 className="text-3xl text-primary text-center my-2">
         Why Hamro Fulbari?
       </h2>
-      <main className="border bg-secondary border-primary p-20 flex gap-10 justify-between px-32 mt-10">
-        <div className="flex gap-4 flex-col">
+      <main className="border bg-secondary border-primary p-20 flex justify-between px-32 mt-10">
+        <div className="flex gap-8 flex-col">
           <img src="/certificate.png" className="aspect-square w-24" alt="" />
-          <div className="">
+          <div className="flex gap-2 flex-col">
             <h3 className="text-2xl text-primary">7 Day GUARANTEE</h3>
             <h3>
               If your plant dies within 7 days, we’ll
@@ -15,13 +15,13 @@ export default function WhyUs() {
             </h3>
           </div>
         </div>
-        <div className="flex gap-4 flex-col">
+        <div className="flex gap-8 flex-col">
           <img
             src="/customerService.png"
             className="aspect-square w-24"
             alt=""
           />
-          <div className="">
+          <div className="flex gap-2 flex-col">
             <h3 className="text-2xl text-primary">CUSTOMER SERVICE</h3>
             <h3>
               Not just selling, we are always open <br /> to your queries
@@ -30,9 +30,9 @@ export default function WhyUs() {
             </h3>
           </div>
         </div>
-        <div className="flex gap-4 flex-col">
+        <div className="flex gap-8 flex-col">
           <img src="/delivery.png" className="aspect-square w-24" alt="" />
-          <div className="">
+          <div className="flex gap-2 flex-col">
             <h3 className="text-2xl text-primary">DELIVERY</h3>
             <h3>
               We deliver your order right at your <br /> doorstep. All you have

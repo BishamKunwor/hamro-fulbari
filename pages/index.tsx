@@ -1,3 +1,4 @@
+import AboutUs from "@/components/AboutUs";
 import WhyUs from "@/components/WhyUs";
 import Head from "next/head";
 // import RegisterAccount from "./register";
@@ -10,7 +11,7 @@ export default function Home() {
       </Head>
       <main className="bg-accent">
         <section>
-          <div className="max-w-screen-2xl mx-auto h-[530px] my-10 relative">
+          <div className="max-w-screen-2xl mx-auto h-[530px] my-6 relative">
             <img
               src="/hero-image.png"
               alt=""
@@ -77,6 +78,7 @@ export default function Home() {
           </h2>
         </section>
         <WhyUs />
+        <AboutUs />
         <section className="mx-auto max-w-screen-2xl py-10">
           <h2 className="text-3xl text-primary text-center my-2">
             TESTOMONIALS

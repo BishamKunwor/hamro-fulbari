@@ -85,32 +85,65 @@ export default function NavBar() {
                 </button>
               </div>
             </div>
-            <div className="flex gap-2 textColor">
+            <div className="flex gap-10 textColor">
               <svg
+                width="26"
+                height="30"
+                viewBox="0 0 26 30"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
               >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                <path
+                  d="M25 28.5V25.5C25 23.9087 24.3679 22.3826 23.2426 21.2574C22.1174 20.1321 20.5913 19.5 19 19.5H7C5.4087 19.5 3.88258 20.1321 2.75736 21.2574C1.63214 22.3826 1 23.9087 1 25.5V28.5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M13 13.5C16.3137 13.5 19 10.8137 19 7.5C19 4.18629 16.3137 1.5 13 1.5C9.68629 1.5 7 4.18629 7 7.5C7 10.8137 9.68629 13.5 13 13.5Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
               <svg
+                width="36"
+                height="34"
+                viewBox="0 0 36 34"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
               >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                <path
+                  d="M13.5 33C14.3284 33 15 32.3284 15 31.5C15 30.6716 14.3284 30 13.5 30C12.6716 30 12 30.6716 12 31.5C12 32.3284 12.6716 33 13.5 33Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M30 33C30.8284 33 31.5 32.3284 31.5 31.5C31.5 30.6716 30.8284 30 30 30C29.1716 30 28.5 30.6716 28.5 31.5C28.5 32.3284 29.1716 33 30 33Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M1.5 1.5H7.5L11.52 21.585C11.6572 22.2756 12.0329 22.8959 12.5813 23.3374C13.1298 23.779 13.816 24.0135 14.52 24H29.1C29.804 24.0135 30.4902 23.779 31.0387 23.3374C31.5871 22.8959 31.9628 22.2756 32.1 21.585L34.5 9H9"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </div>
           </main>
         </nav>
       </section>
       <section className="bg-accent">
-        <nav className="max-w-screen-2xl mx-auto">
-          <ul className="flex justify-center items-center gap-6 py-2 text-lg text-black/90 font-medium">
+        <nav className="max-w-screen-2xl mx-auto mt-4">
+          <ul className="flex justify-center items-center gap-6 py-2 text-2xl text-black/90 font-medium">
             <li className="hover:text-primary transition-all duration-300">
               <a href="">Home</a>
             </li>
