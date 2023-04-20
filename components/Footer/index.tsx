@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <section className="bg-primary">
-      <footer className="footer p-10 text-white/90 max-w-screen-2xl mx-auto">
+      <footer className="footer py-10 textColor max-w-screen-2xl mx-auto">
         <div>
           <span className="footer-title opacity-80 text-2xl">
             Hamro <br />
@@ -38,12 +38,12 @@ export default function Footer() {
           <span className="footer-title">Newsletter</span>
           <div className="form-control w-80">
             <label className="label">
-              <span className="label-text text-white/90">
+              <span className="label-text textColor">
                 Sign up for our e-mail and be the first who know <br /> our
                 special offers!
               </span>
             </label>
-            <div className="relative">
+            <div className="relative text-black">
               <input
                 type="text"
                 placeholder="username@site.com"
