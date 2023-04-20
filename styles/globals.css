@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Overlock:wght@400;700;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,4 +31,8 @@ body {
   .textColor {
     @apply text-white/90;
   }
+}
+
+html {
+  font-family: "Overlock", cursive;
 }
