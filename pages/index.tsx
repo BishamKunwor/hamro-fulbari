@@ -1,6 +1,15 @@
+import Footer from "@/components/Footer";
+import Head from "next/head";
+
 export default function Home() {
   return (
-    <main className="">
-    </main>
+    <>
+      <Head>
+        <title>Hamro Fulbari</title>
+      </Head>
+      <main className="">
+        <Footer />
+      </main>
+    </>
   );
 }
