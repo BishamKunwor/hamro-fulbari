@@ -9,7 +9,7 @@ export default function Home() {
         <title>Hamro Fulbari</title>
       </Head>
       <NavBar />
-      <main className="">fsda</main>
+      <main className=""></main>
       <Footer />
     </>
   );
