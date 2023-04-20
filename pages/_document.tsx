@@ -6,7 +6,7 @@ export default function Document() {
   return (
     <Html lang="en" data-theme="light">
       <Head />
-      <body>
+      <body className="bg-accent">
         <NavBar />
         <Main />
         <NextScript />
