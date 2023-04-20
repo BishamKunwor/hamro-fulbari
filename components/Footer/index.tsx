@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <section className="bg-primary">
-      <footer className="footer py-10 textColor max-w-screen-2xl mx-auto">
+      <footer className="footer py-10 px-5 md:px-0 textColor max-w-screen-2xl mx-auto">
         <div>
           <span className="footer-title opacity-80 text-2xl">
             Hamro <br />
