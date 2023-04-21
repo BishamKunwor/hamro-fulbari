@@ -42,9 +42,11 @@ export default function Home() {
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p>Rs. 499.00</p>
                 <div className="card-actions justify-start">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -54,9 +56,11 @@ export default function Home() {
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p>Rs. 499.00</p>
                 <div className="card-actions justify-start">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -66,9 +70,11 @@ export default function Home() {
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p>Rs. 499.00</p>
                 <div className="card-actions justify-start">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -78,6 +84,28 @@ export default function Home() {
           <h2 className="text-3xl text-primary text-center my-2">
             Products Categories
           </h2>
+          <main className="flex flex-wrap gap-12 pt-12">
+            {Array.from({ length: 5 }).map((data, index) => {
+              return (
+                <div key={index} className="max-w-md space-y-4">
+                  <p className="font-medium text-2xl text-primary">
+                    Nursery Plants
+                  </p>
+                  <div className="flex font-medium">
+                    <p>
+                      Provides a broad range of natural accessories and plants
+                      in Kathmandu. Our assortment of a aquatic plants, and
+                      aromatic plants is the largest.
+                    </p>
+                    <img src="/certificate.png" alt="" />
+                  </div>
+                  <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
+                    View
+                  </button>
+                </div>
+              );
+            })}
+          </main>
         </section>
         <WhyUs />
         <AboutUs />
