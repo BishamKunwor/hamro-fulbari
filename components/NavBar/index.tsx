@@ -56,10 +56,12 @@ export default function NavBar() {
             </div>
           </div>
           <main className="flex justify-between items-center">
-            <div className="capitalize py-2 textColor">
-              Hamro <br />
-              Fulbari
-            </div>
+            <a href="/">
+              <div className="capitalize py-2 textColor">
+                Hamro <br />
+                Fulbari
+              </div>
+            </a>
             <div className="form-control">
               <div className="input-group">
                 <input

@@ -1,4 +1,5 @@
 import AboutUs from "@/components/AboutUs";
+import Review from "@/components/Review";
 import WhyUs from "@/components/WhyUs";
 import Head from "next/head";
 // import RegisterAccount from "./register";
@@ -87,7 +88,7 @@ export default function Home() {
               <h2 className="text-3xl text-primary text-center my-2">
                 Message From Director
               </h2>
-              <p>
+              <p className="font-medium text-lg">
                 Choosing the right decision while thinking of plants, garden
                 designing and decoration is very important because there is a
                 saying that: We may think we are nurturing our garden. But of
@@ -97,7 +98,7 @@ export default function Home() {
                 area expanded in 10 ropani in Gongabu, Kathmandu, Nepal to meet
                 the every needs and requirements of our clients.
               </p>
-              <p>
+              <p className="font-medium text-lg mt-6">
                 Our team of professional designers, will construct a outdoor,
                 indoor, office and garden design that suits your personality and
                 property, whether it's traditional, cottage, minimalist, or
@@ -108,11 +109,7 @@ export default function Home() {
             </section>
           </main>
         </section>
-        <section className="mx-auto max-w-screen-2xl py-10">
-          <h2 className="text-3xl text-primary text-center my-2">
-            TESTOMONIALS
-          </h2>
-        </section>
+        <Review />
         <section className="mx-auto max-w-screen-2xl py-10">
           <h2 className="text-3xl text-primary text-center my-2">Contact us</h2>
           <iframe

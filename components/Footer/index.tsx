@@ -3,10 +3,12 @@ export default function Footer() {
     <section className="bg-primary">
       <footer className="footer py-10 px-5 md:px-0 textColor max-w-screen-2xl mx-auto">
         <div>
-          <span className="footer-title opacity-80 text-2xl">
-            Hamro <br />
-            Fulbari
-          </span>
+          <a href="/">
+            <span className="footer-title opacity-80 text-2xl">
+              Hamro <br />
+              Fulbari
+            </span>
+          </a>
           <label className="link link-hover">
             <div>Adress:</div>
             <span>Kathmandu, Gongabu, Nepal</span>
