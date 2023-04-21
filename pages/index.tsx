@@ -2,6 +2,7 @@ import AboutUs from "@/components/AboutUs";
 import WhyUs from "@/components/WhyUs";
 import Head from "next/head";
 // import RegisterAccount from "./register";
+import store from "store";
 
 export default function Home() {
   return (
@@ -79,6 +80,34 @@ export default function Home() {
         </section>
         <WhyUs />
         <AboutUs />
+        <section className="mx-auto max-w-screen-2xl">
+          <main className="flex gap-16">
+            <img src="/bordOfDirector.jpeg" alt="" />
+            <section>
+              <h2 className="text-3xl text-primary text-center my-2">
+                Message From Director
+              </h2>
+              <p>
+                Choosing the right decision while thinking of plants, garden
+                designing and decoration is very important because there is a
+                saying that: We may think we are nurturing our garden. But of
+                course, it's our garden that is really nurturing us. We as Hamro
+                Fulbari have already been serving the more than 1000 clients
+                within 9+ years of journey which started in 2069 BS. We have our
+                area expanded in 10 ropani in Gongabu, Kathmandu, Nepal to meet
+                the every needs and requirements of our clients.
+              </p>
+              <p>
+                Our team of professional designers, will construct a outdoor,
+                indoor, office and garden design that suits your personality and
+                property, whether it's traditional, cottage, minimalist, or
+                contemporary and will always make sure to respect your concepts
+                and design you have in your thoughts. We are also expert at
+                restoring and renewing gardens and trouble locations.
+              </p>
+            </section>
+          </main>
+        </section>
         <section className="mx-auto max-w-screen-2xl py-10">
           <h2 className="text-3xl text-primary text-center my-2">
             TESTOMONIALS
