@@ -147,10 +147,10 @@ export default function NavBar() {
         <nav className="max-w-screen-2xl mx-auto mt-4">
           <ul className="flex justify-center items-center gap-6 py-2 text-2xl text-black/90 font-medium">
             <li className="hover:text-primary transition-all duration-300">
-              <a href="">Home</a>
+              <a href="/">Home</a>
             </li>
             <li className="hover:text-primary transition-all duration-300">
-              <a href="">Products</a>
+              <a href="/products">Products</a>
             </li>
             <li className="hover:text-primary transition-all duration-300">
               <a href="">About Us</a>
