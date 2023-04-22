@@ -14,7 +14,7 @@ export function addDefaultDbDatas() {
     store.set("activeUser", {});
   }
   if (!store.get("purchaseDb")) {
-    store.set("purchaseDb", []);
+    store.set("purchaseDb", {});
   }
   if (!store.get("isLoggedIn")) {
     store.set("isLoggedIn", false);
@@ -24,5 +24,43 @@ export function addDefaultDbDatas() {
 export function addToCart(data: PlantsData) {
   const allData = store.get("purchaseDb");
   const activeUser = store.get("activeUser");
-  console.log(data, activeUser);
+
+  if (Object.keys(allData).length === 0) {
+    allData[activeUser.firstName.toLocaleLowerCase()] = [
+      {
+        ...data,
+        quantity: 1,
+      },
+    ];
+  } else {
+    for (let key in allData) {
+      if (key === activeUser.firstName.toLocaleLowerCase()) {
+        let isNewData = true;
+        for (let item of allData[key]) {
+          if (item.id === data.id) {
+            item.quantity += 1;
+            isNewData = false;
+          } else {
+            isNewData = true;
+          }
+        }
+        if (isNewData) {
+          allData[key].push({
+            ...data,
+            quantity: 1,
+          });
+        }
+      } else {
+        allData[activeUser.firstName.toLocaleLowerCase()] = [
+          {
+            ...data,
+            quantity: 1,
+          },
+        ];
+      }
+    }
+  }
+
+  store.set("purchaseDb", allData);
+  console.log(allData);
 }

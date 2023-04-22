@@ -11,6 +11,7 @@ export default function NavBar() {
 
   const handleLogout = () => {
     store.set("activeUser", "");
+    store.set("isLoggedIn", false);
     setActiveUser({});
   };
 
