@@ -138,6 +138,9 @@ export default function Home() {
                           Add to Cart
                         </label>
                       )}
+                      <a href={`/details?id=${data.id}`} className="btn w-40">
+                        View Details
+                      </a>
                     </div>
                   </div>
                 </div>
