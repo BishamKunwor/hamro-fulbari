@@ -2,8 +2,23 @@ import { PlantsData } from "@/pages";
 import store from "store";
 
 export function updateCartAmount() {
+  const activeUser = store.get("activeUser");
+  const allData = store.get("purchaseDb");
+  let cartTotalContents = 0;
+  try {
+    for (let item of allData[activeUser.firstName.toLocaleLowerCase()]) {
+      cartTotalContents += item.quantity;
+    }
+  } catch (error) {
+    console.log(error);
+  }
   const styleTag = document.querySelector("#cart-update-style");
-  styleTag!.innerHTML = "#cart-content::after{" + "content:'" + 1 + "'}";
+  if (cartTotalContents === 0) {
+    styleTag!.innerHTML = "";
+  } else {
+    styleTag!.innerHTML =
+      "#cart-content::after{" + "content:'" + cartTotalContents + "'}";
+  }
 }
 
 export function addDefaultDbDatas() {
@@ -19,13 +34,17 @@ export function addDefaultDbDatas() {
   if (!store.get("isLoggedIn")) {
     store.set("isLoggedIn", false);
   }
+  updateCartAmount();
 }
 
 export function addToCart(data: PlantsData) {
   const allData = store.get("purchaseDb");
   const activeUser = store.get("activeUser");
 
-  if (Object.keys(allData).length === 0) {
+  if (
+    Object.keys(allData).length === 0 ||
+    !Object.keys(allData).includes(activeUser.firstName.toLocaleLowerCase())
+  ) {
     allData[activeUser.firstName.toLocaleLowerCase()] = [
       {
         ...data,
@@ -40,6 +59,7 @@ export function addToCart(data: PlantsData) {
           if (item.id === data.id) {
             item.quantity += 1;
             isNewData = false;
+            break;
           } else {
             isNewData = true;
           }
@@ -50,17 +70,11 @@ export function addToCart(data: PlantsData) {
             quantity: 1,
           });
         }
-      } else {
-        allData[activeUser.firstName.toLocaleLowerCase()] = [
-          {
-            ...data,
-            quantity: 1,
-          },
-        ];
       }
     }
   }
 
   store.set("purchaseDb", allData);
-  console.log(allData);
+  // console.log(allData);
+  updateCartAmount();
 }
