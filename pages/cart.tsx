@@ -50,7 +50,7 @@ export default function Cart() {
               <div className="text-xl">Sub Total</div>
               <div className="text-xl"></div>
             </div>
-            {cartData.map((data, index) => {
+            {cartData.map((data: any, index) => {
               return (
                 <div
                   key={index}
