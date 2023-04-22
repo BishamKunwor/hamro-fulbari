@@ -11,12 +11,16 @@ export default function SuccessfulLogin() {
     if (Object.keys(router.query).length === 0) {
       return;
     }
+    if (Object.keys(store.get("userCredentials")).length === 0) {
+      router.push("/login?failed=true");
+    }
     for (let data of store.get("userCredentials")) {
       if (
         data.email === router.query.email &&
         data.password === router.query.password
       ) {
         store.set("activeUser", data);
+        store.set("isLoggedIn", true);
         router.push("/");
       } else {
         router.push("/login?failed=true");

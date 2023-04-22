@@ -21,6 +21,7 @@ export default function CreateAccount() {
       store.set("userCredentials", [router.query]);
     }
     store.set("activeUser", router.query);
+    store.set("isLoggedIn", true);
     router.push("/");
   });
   return <></>;

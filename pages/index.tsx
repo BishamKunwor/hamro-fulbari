@@ -2,13 +2,17 @@ import AboutUs from "@/components/AboutUs";
 import Layout from "@/components/Layout";
 import Review from "@/components/Review";
 import WhyUs from "@/components/WhyUs";
-import { addDefaultDbDatas, updateCartAmount } from "@/components/utils";
+import {
+  addDefaultDbDatas,
+  addToCart,
+  updateCartAmount,
+} from "@/components/utils";
 import { message } from "antd";
 import Head from "next/head";
 import { ReactNode, useEffect, useState } from "react";
 import store from "store";
 
-interface PlantsData {
+export interface PlantsData {
   name: string;
   price: number;
   id: number;
@@ -18,10 +22,10 @@ interface PlantsData {
 export default function Home() {
   useEffect(() => {
     fetchPlantsData();
-    if (store.get("activeUser")) {
+    if (store.get("isLoggedIn")) {
       setIsLoggedIn(true);
     }
-    addDefaultDbDatas()
+    addDefaultDbDatas();
   }, []);
   const fetchPlantsData = async () => {
     try {
@@ -37,7 +41,7 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleAdd = (data: PlantsData) => {
-    console.log(data);
+    addToCart(data);
   };
 
   return (
