@@ -50,6 +50,26 @@ export default function ProductDetails() {
 
   return (
     <>
+      <section id="login-register-prompt-modal">
+        <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+        <label htmlFor="my-modal-4" className="modal cursor-pointer">
+          <label className="modal-box relative" htmlFor="">
+            <h3 className="text-lg font-bold">Please Login to Continue.</h3>
+            <div className="flex justify-between">
+              <a href="/register">
+                <button className="btn inline-block btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80 mt-8">
+                  Register
+                </button>
+              </a>
+              <a href="/login">
+                <button className="btn inline-block btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80 mt-8">
+                  Login
+                </button>
+              </a>
+            </div>
+          </label>
+        </label>
+      </section>
       {activeDetails && (
         <section className="mx-auto max-w-screen-2xl my-10">
           <div className="flex gap-16">
@@ -63,16 +83,25 @@ export default function ProductDetails() {
               <h3 className="text-2xl text-primary mt-4">
                 Rs. {activeDetails.price}
               </h3>
-              <button
-                onClick={() => {
-                  handleAdd(activeDetails);
-                  updateCartAmount();
-                  message.success("Successfully Added Element.");
-                }}
-                className="btn btn-primary w-40 mt-4 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80"
-              >
-                Add to Cart
-              </button>
+              {isLoggedIn ? (
+                <button
+                  onClick={() => {
+                    handleAdd(activeDetails);
+                    updateCartAmount();
+                    message.success("Successfully Added Element.");
+                  }}
+                  className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80"
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <label
+                  htmlFor="my-modal-4"
+                  className="btn w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80"
+                >
+                  Add to Cart
+                </label>
+              )}
               <h3 className="text-2xl text-primary mt-8 pb-4">DESCRIPTION</h3>
               <div className="space-y-6">
                 <p className="text-xl">
@@ -147,7 +176,7 @@ export default function ProductDetails() {
                             Add to Cart
                           </label>
                         )}
-                        <a href={`/${data.id}`} className="btn w-40">
+                        <a href={`/details?id=${data.id}`} className="btn w-40">
                           View Details
                         </a>
                       </div>
