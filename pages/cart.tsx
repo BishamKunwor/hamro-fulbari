@@ -1,3 +1,6 @@
+import Layout from "@/components/Layout";
+import { ReactNode } from "react";
+
 export default function Cart() {
   return (
     <section className="flex max-w-screen-2xl mx-auto gap-10">
@@ -227,3 +230,7 @@ export default function Cart() {
     </section>
   );
 }
+
+Cart.getLayout = function getLayout(page: ReactNode) {
+  return <Layout>{page}</Layout>;
+};

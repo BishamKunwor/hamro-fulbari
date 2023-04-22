@@ -1,7 +1,8 @@
+import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
-export default function RegisterAccount() {
+export default function Login() {
   useEffect(() => {
     if (Object.keys(router.query).length === 0) {
       return;
@@ -107,3 +108,7 @@ export default function RegisterAccount() {
     </section>
   );
 }
+
+Login.getLayout = function getLayout(page: ReactNode) {
+  return <Layout>{page}</Layout>;
+};

@@ -1,3 +1,6 @@
+import Layout from "@/components/Layout";
+import { ReactNode } from "react";
+
 export default function RegisterAccount() {
   return (
     <section className="max-w-screen-2xl mx-auto py-10 space-y-4">
@@ -79,3 +82,7 @@ export default function RegisterAccount() {
     </section>
   );
 }
+
+RegisterAccount.getLayout = function getLayout(page: ReactNode) {
+  return <Layout>{page}</Layout>;
+};

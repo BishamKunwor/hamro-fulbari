@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import Layout from "@/components/Layout";
+import { ReactNode, useEffect, useState } from "react";
 
 interface PlantsData {
   name: string;
@@ -59,3 +60,7 @@ export default function Products() {
     </section>
   );
 }
+
+Products.getLayout = function getLayout(page: ReactNode) {
+  return <Layout>{page}</Layout>;
+};
