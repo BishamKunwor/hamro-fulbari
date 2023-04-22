@@ -1,6 +1,12 @@
 import Layout from "@/components/Layout";
-import { addDefaultDbDatas } from "@/components/utils";
+import {
+  addDefaultDbDatas,
+  addToCart,
+  updateCartAmount,
+} from "@/components/utils";
 import { ReactNode, useEffect, useState } from "react";
+import { message } from "antd";
+import store from "store";
 
 interface PlantsData {
   name: string;
@@ -12,6 +18,9 @@ interface PlantsData {
 export default function Products() {
   useEffect(() => {
     fetchPlantsData();
+    if (store.get("isLoggedIn")) {
+      setIsLoggedIn(true);
+    }
     addDefaultDbDatas();
   }, []);
   const fetchPlantsData = async () => {
@@ -24,6 +33,12 @@ export default function Products() {
     }
   };
   const [plantsData, setPlantsData] = useState<PlantsData[]>([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleAdd = (data: PlantsData) => {
+    addToCart(data);
+  };
+
   return (
     <section className="flex max-w-screen-2xl mx-auto gap-10 mb-16">
       <div className="border px-2 border-primary bg-secondary max-w-xs">
@@ -49,9 +64,25 @@ export default function Products() {
                   <h2 className="card-title">{data.name}</h2>
                   <p>Rs. {data.price}</p>
                   <div className="card-actions justify-start">
-                    <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
-                      Add to Cart
-                    </button>
+                    {isLoggedIn ? (
+                      <button
+                        onClick={() => {
+                          handleAdd(data);
+                          updateCartAmount();
+                          message.success("Successfully Added Element.");
+                        }}
+                        className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80"
+                      >
+                        Add to Cart
+                      </button>
+                    ) : (
+                      <label
+                        htmlFor="my-modal-4"
+                        className="btn w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80"
+                      >
+                        Add to Cart
+                      </label>
+                    )}
                   </div>
                 </div>
               </div>

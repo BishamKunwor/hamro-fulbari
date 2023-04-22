@@ -37,7 +37,7 @@ export function addDefaultDbDatas() {
   updateCartAmount();
 }
 
-export function addToCart(data: PlantsData) {
+export function addToCart(data: PlantsData, calledFrom = "add") {
   const allData = store.get("purchaseDb");
   const activeUser = store.get("activeUser");
 
@@ -57,7 +57,11 @@ export function addToCart(data: PlantsData) {
         let isNewData = true;
         for (let item of allData[key]) {
           if (item.id === data.id) {
-            item.quantity += 1;
+            if (calledFrom === "add") {
+              item.quantity += 1;
+            } else {
+              item.quantity -= 1;
+            }
             isNewData = false;
             break;
           } else {
@@ -76,5 +80,41 @@ export function addToCart(data: PlantsData) {
 
   store.set("purchaseDb", allData);
   // console.log(allData);
+  updateCartAmount();
+}
+
+export function getCartData() {
+  const allData = store.get("purchaseDb");
+  const activeUser = store.get("activeUser");
+  return allData[activeUser.firstName.toLocaleLowerCase()];
+}
+
+export function getTotalAmount() {
+  const allData = store.get("purchaseDb");
+  const activeUser = store.get("activeUser");
+  let total = 0;
+  try {
+    for (let data of allData[activeUser.firstName.toLocaleLowerCase()]) {
+      total += data.quantity * data.price;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  return total;
+}
+
+export function removeCartItem(item: any) {
+  let allData = store.get("purchaseDb");
+  const activeUser = store.get("activeUser");
+  const updatedData = allData[activeUser.firstName.toLocaleLowerCase()].filter(
+    (data: any) => {
+      return data.id !== item.id;
+    }
+  );
+  allData = {
+    ...allData,
+    [activeUser.firstName.toLocaleLowerCase()]: updatedData,
+  };
+  store.set("purchaseDb", allData);
   updateCartAmount();
 }

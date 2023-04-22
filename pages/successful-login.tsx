@@ -8,11 +8,12 @@ export default function SuccessfulLogin() {
     addDefaultDbDatas();
   }, []);
   useEffect(() => {
+    let loginStatus = false;
     if (Object.keys(router.query).length === 0) {
       return;
     }
-    if (Object.keys(store.get("userCredentials")).length === 0) {
-      router.push("/login?failed=true");
+    if (store.get("userCredentials").length === 0) {
+      loginStatus = false;
     }
     for (let data of store.get("userCredentials")) {
       if (
@@ -21,10 +22,14 @@ export default function SuccessfulLogin() {
       ) {
         store.set("activeUser", data);
         store.set("isLoggedIn", true);
+        loginStatus = true;
         router.push("/");
-      } else {
-        router.push("/login?failed=true");
+        break;
       }
+      loginStatus = false;
+    }
+    if (!loginStatus) {
+      router.push("/login?failed=true");
     }
   });
   const router = useRouter();
