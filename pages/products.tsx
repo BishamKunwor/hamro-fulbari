@@ -4,10 +4,10 @@ export default function Products() {
       <div className="border px-2 border-primary bg-secondary max-w-xs">
         <h2 className="text-2xl text-primary my-2">Products</h2>
       </div>
-      <div className="w-full px-12">
+      <div className="w-full">
         <h2 className="text-3xl text-primary my-2">Products</h2>
         <main className="flex gap-6 flex-wrap">
-          {Array.from({ length: 9 }).map((data, index) => {
+          {Array.from({ length: 15 }).map((data, index) => {
             return (
               <div
                 key={index}
