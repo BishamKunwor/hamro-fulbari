@@ -41,8 +41,17 @@ export default function Products() {
 
   return (
     <section className="flex max-w-screen-2xl mx-auto gap-10 mb-16">
-      <div className="border px-2 border-primary bg-secondary max-w-xs">
+      <div className="border px-12 border-primary bg-secondary max-w-xs">
         <h2 className="text-2xl text-primary my-2">Products</h2>
+        <div className="mt-8">
+          <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">New Arrivals</div>
+          <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">Nursery plants</div>
+          <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">Garden Essentials</div>
+          <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">Indoor Plants</div>
+          <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">Outdoor Plants</div>
+          <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">Chemical</div>
+          <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">Trees</div>
+        </div>
       </div>
       <div className="w-full">
         <h2 className="text-3xl text-primary my-2">Products</h2>
