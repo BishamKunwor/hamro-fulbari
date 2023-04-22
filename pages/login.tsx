@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { addDefaultDbDatas } from "@/components/utils";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect, useRef } from "react";
 
@@ -16,6 +17,9 @@ export default function Login() {
       }, 1500);
     }
   });
+  useEffect(() => {
+    addDefaultDbDatas();
+  }, []);
   const router = useRouter();
   const errorPopup = useRef<HTMLDivElement>(null);
 

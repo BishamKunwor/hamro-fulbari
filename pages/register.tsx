@@ -1,7 +1,11 @@
 import Layout from "@/components/Layout";
-import { ReactNode } from "react";
+import { addDefaultDbDatas } from "@/components/utils";
+import { ReactNode, useEffect } from "react";
 
 export default function RegisterAccount() {
+  useEffect(() => {
+    addDefaultDbDatas();
+  }, []);
   return (
     <section className="max-w-screen-2xl mx-auto py-10 space-y-4">
       <h1 className="text-4xl text-center text-primary capitalize">

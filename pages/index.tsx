@@ -2,6 +2,8 @@ import AboutUs from "@/components/AboutUs";
 import Layout from "@/components/Layout";
 import Review from "@/components/Review";
 import WhyUs from "@/components/WhyUs";
+import { addDefaultDbDatas, updateCartAmount } from "@/components/utils";
+import { message } from "antd";
 import Head from "next/head";
 import { ReactNode, useEffect, useState } from "react";
 import store from "store";
@@ -19,6 +21,7 @@ export default function Home() {
     if (store.get("activeUser")) {
       setIsLoggedIn(true);
     }
+    addDefaultDbDatas()
   }, []);
   const fetchPlantsData = async () => {
     try {
@@ -32,6 +35,10 @@ export default function Home() {
 
   const [plantsData, setPlantsData] = useState<PlantsData[]>([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleAdd = (data: PlantsData) => {
+    console.log(data);
+  };
 
   return (
     <>
@@ -109,7 +116,14 @@ export default function Home() {
                     <p>Rs. {data.price}</p>
                     <div className="card-actions justify-start">
                       {isLoggedIn ? (
-                        <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
+                        <button
+                          onClick={() => {
+                            handleAdd(data);
+                            updateCartAmount();
+                            message.success("Successfully Added Element.");
+                          }}
+                          className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80"
+                        >
                           Add to Cart
                         </button>
                       ) : (

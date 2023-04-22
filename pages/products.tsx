@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { addDefaultDbDatas } from "@/components/utils";
 import { ReactNode, useEffect, useState } from "react";
 
 interface PlantsData {
@@ -11,6 +12,7 @@ interface PlantsData {
 export default function Products() {
   useEffect(() => {
     fetchPlantsData();
+    addDefaultDbDatas();
   }, []);
   const fetchPlantsData = async () => {
     try {
