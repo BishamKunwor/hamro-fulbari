@@ -29,7 +29,7 @@ export default function ProductDetails() {
       response = await response.json();
       setPlantsData(response);
       for (let data of response) {
-        if (data.id === parseInt(router.query.id)) {
+        if (data.id === parseInt(router.query.id as string)) {
           console.log("runned");
           setActiveDetails(data);
           return;
@@ -42,7 +42,7 @@ export default function ProductDetails() {
 
   const [plantsData, setPlantsData] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeDetails, setActiveDetails] = useState({});
+  const [activeDetails, setActiveDetails] = useState<any>({});
 
   const handleAdd = (data: PlantsData) => {
     addToCart(data);
