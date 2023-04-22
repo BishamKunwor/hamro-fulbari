@@ -16,7 +16,7 @@ export default function RegisterAccount() {
             <input
               required
               type="text"
-              name="fistName"
+              name="firstName"
               placeholder="Type here"
               className="input input-bordered w-full"
             />

@@ -1,4 +1,19 @@
+import { useEffect, useState } from "react";
+import store from "store";
+
 export default function NavBar() {
+  useEffect(() => {
+    if (store.get("activeUser")) {
+      setActiveUser(store.get("activeUser"));
+    }
+  }, []);
+  const [activeUser, setActiveUser] = useState({});
+
+  const handleLogout = () => {
+    store.set("activeUser", "");
+    setActiveUser({});
+  };
+
   return (
     <>
       <section className="bg-primary pt-3">
@@ -87,30 +102,74 @@ export default function NavBar() {
                 </button>
               </div>
             </div>
-            <div className="flex gap-10 textColor">
-              <svg
-                width="26"
-                height="30"
-                viewBox="0 0 26 30"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <div className="flex items-center gap-10 textColor">
+              <div className="dropdown text-black cursor-pointer">
+                <label
+                  tabIndex={0}
+                  className="flex items-center cursor-pointer"
+                >
+                  <svg
+                    width="26"
+                    height="30"
+                    viewBox="0 0 26 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M25 28.5V25.5C25 23.9087 24.3679 22.3826 23.2426 21.2574C22.1174 20.1321 20.5913 19.5 19 19.5H7C5.4087 19.5 3.88258 20.1321 2.75736 21.2574C1.63214 22.3826 1 23.9087 1 25.5V28.5"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M13 13.5C16.3137 13.5 19 10.8137 19 7.5C19 4.18629 16.3137 1.5 13 1.5C9.68629 1.5 7 4.18629 7 7.5C7 10.8137 9.68629 13.5 13 13.5Z"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </label>
+                {Object.keys(activeUser).length > 0 ? (
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a>{activeUser.firstName + " " + activeUser.lastName}</a>
+                    </li>
+                    <li onClick={handleLogout}>
+                      <a className="text-red-500 active:bg-red-500 active:text-white">
+                        Log Out
+                      </a>
+                    </li>
+                  </ul>
+                ) : (
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a>Please Login In.</a>
+                    </li>
+                    <li>
+                      <a
+                        href="/login"
+                        // className="text-red-500 active:bg-red-500 active:text-white"
+                      >
+                        Log In
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </div>
+
+              <a
+                id="cart-content"
+                href="/cart"
+                className="after:absolute relative after:bg-red-500 after:rounded-full after:px-1 after:-top-2 after:-right-2"
               >
-                <path
-                  d="M25 28.5V25.5C25 23.9087 24.3679 22.3826 23.2426 21.2574C22.1174 20.1321 20.5913 19.5 19 19.5H7C5.4087 19.5 3.88258 20.1321 2.75736 21.2574C1.63214 22.3826 1 23.9087 1 25.5V28.5"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M13 13.5C16.3137 13.5 19 10.8137 19 7.5C19 4.18629 16.3137 1.5 13 1.5C9.68629 1.5 7 4.18629 7 7.5C7 10.8137 9.68629 13.5 13 13.5Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <a href="/cart">
                 <svg
                   width="36"
                   height="34"

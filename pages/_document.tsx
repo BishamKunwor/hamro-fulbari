@@ -7,10 +7,10 @@ export default function Document() {
     <Html lang="en" data-theme="light">
       <Head />
       <body className="bg-accent">
-        <NavBar />
+        {/* <NavBar /> */}
         <Main />
         <NextScript />
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </Html>
   );

@@ -1,8 +1,9 @@
 import AboutUs from "@/components/AboutUs";
+import Layout from "@/components/Layout";
 import Review from "@/components/Review";
 import WhyUs from "@/components/WhyUs";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import store from "store";
 
 interface PlantsData {
@@ -15,6 +16,9 @@ interface PlantsData {
 export default function Home() {
   useEffect(() => {
     fetchPlantsData();
+    if (store.get("activeUser")) {
+      setIsLoggedIn(true);
+    }
   }, []);
   const fetchPlantsData = async () => {
     try {
@@ -26,15 +30,7 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    if (store.get("activeUser")) {
-      setActiveUser(store.get("activeUser"));
-      setIsLoggedIn(true);
-    }
-  });
-
   const [plantsData, setPlantsData] = useState<PlantsData[]>([]);
-  const [activeUser, setActiveUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
@@ -212,3 +208,7 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactNode) {
+  return <Layout>{page}</Layout>;
+};
