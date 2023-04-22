@@ -2,10 +2,30 @@ import AboutUs from "@/components/AboutUs";
 import Review from "@/components/Review";
 import WhyUs from "@/components/WhyUs";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 // import RegisterAccount from "./register";
-import store from "store";
+
+interface PlantsData {
+  name: string;
+  price: number;
+  id: number;
+  imgUrl: string;
+}
 
 export default function Home() {
+  useEffect(() => {
+    fetchPlantsData();
+  }, []);
+  const fetchPlantsData = async () => {
+    try {
+      let response: any = await fetch("/data.json");
+      response = await response.json();
+      setPlantsData(response);
+    } catch (error) {
+      console.log("Fetch Error: ", error);
+    }
+  };
+  const [plantsData, setPlantsData] = useState<PlantsData[]>([]);
   return (
     <>
       <Head>
@@ -25,18 +45,44 @@ export default function Home() {
                 It’s time to grow your
                 <br /> dreams
               </label>
-              <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80 mt-8">
-                Shop Now
-              </button>
+              <a href="/products">
+                <button className="btn inline-block btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80 mt-8">
+                  Shop Now
+                </button>
+              </a>
             </div>
           </div>
+          {/* The button to open modal */}
+          <label htmlFor="my-modal-4" className="btn">
+            open modal
+          </label>
+          <section id="login-register-prompt-modal">
+            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+            <label htmlFor="my-modal-4" className="modal cursor-pointer">
+              <label className="modal-box relative" htmlFor="">
+                <h3 className="text-lg font-bold">Please Login to Continue.</h3>
+                <div className="flex justify-between">
+                  <a href="/register">
+                    <button className="btn inline-block btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80 mt-8">
+                      Register
+                    </button>
+                  </a>
+                  <a href="/login">
+                    <button className="btn inline-block btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80 mt-8">
+                      Login
+                    </button>
+                  </a>
+                </div>
+              </label>
+            </label>
+          </section>
         </section>
         <section className="mx-auto max-w-screen-2xl pt-10">
           <h2 className="text-3xl text-primary text-center my-2">
             New Arrivals plants
           </h2>
           <main className="mt-8 flex justify-between flex-wrap">
-            <div className="card w-96 bg-base-100 hover:shadow-xl rounded-none bg-transparent transition-all duration-300 cursor-pointer">
+            {/* <div className="card w-96 bg-base-100 hover:shadow-xl rounded-none bg-transparent transition-all duration-300 cursor-pointer">
               <figure>
                 <img className="h-96" src="/plant-1.png" alt="Shoes" />
               </figure>
@@ -77,8 +123,43 @@ export default function Home() {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
+            {plantsData.map((data, index) => {
+              if (index > 5) {
+                return;
+              }
+              return (
+                <div
+                  key={index}
+                  className="card gap-6 w-60 py-4 px-8 items-start border border-primary bg-base-100 hover:shadow-xl rounded-none bg-transparent transition-all duration-300 cursor-pointer"
+                >
+                  <figure>
+                    <img
+                      className="h-44 border-primary"
+                      src={data.imgUrl}
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body p-0">
+                    <h2 className="card-title">{data.name}</h2>
+                    <p>Rs. {data.price}</p>
+                    <div className="card-actions justify-start">
+                      <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </main>
+          <div className="flex mt-16 justify-center my-8">
+            <a href="/products">
+              <button className="btn btn-outline w-40 border-primary hover:bg-primary/80 text-primary hover:border-primary/80">
+                SHOW ALL
+              </button>
+            </a>
+          </div>
         </section>
         <section className="mx-auto max-w-screen-2xl py-10">
           <h2 className="text-3xl text-primary text-center my-2">
