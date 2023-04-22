@@ -3,7 +3,7 @@ import Review from "@/components/Review";
 import WhyUs from "@/components/WhyUs";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-// import RegisterAccount from "./register";
+import store from "store";
 
 interface PlantsData {
   name: string;
@@ -25,7 +25,18 @@ export default function Home() {
       console.log("Fetch Error: ", error);
     }
   };
+
+  useEffect(() => {
+    if (store.get("activeUser")) {
+      setActiveUser(store.get("activeUser"));
+      setIsLoggedIn(true);
+    }
+  });
+
   const [plantsData, setPlantsData] = useState<PlantsData[]>([]);
+  const [activeUser, setActiveUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <Head>
@@ -52,10 +63,9 @@ export default function Home() {
               </a>
             </div>
           </div>
-          {/* The button to open modal */}
-          <label htmlFor="my-modal-4" className="btn">
+          {/* <label htmlFor="my-modal-4" className="btn">
             open modal
-          </label>
+          </label> */}
           <section id="login-register-prompt-modal">
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
             <label htmlFor="my-modal-4" className="modal cursor-pointer">
@@ -81,51 +91,9 @@ export default function Home() {
           <h2 className="text-3xl text-primary text-center my-2">
             New Arrivals plants
           </h2>
-          <main className="mt-8 flex justify-between flex-wrap">
-            {/* <div className="card w-96 bg-base-100 hover:shadow-xl rounded-none bg-transparent transition-all duration-300 cursor-pointer">
-              <figure>
-                <img className="h-96" src="/plant-1.png" alt="Shoes" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>Rs. 499.00</p>
-                <div className="card-actions justify-start">
-                  <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="card w-96 bg-base-100 hover:shadow-xl rounded-none bg-transparent transition-all duration-300 cursor-pointer">
-              <figure>
-                <img className="h-96" src="/plant-1.png" alt="Shoes" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>Rs. 499.00</p>
-                <div className="card-actions justify-start">
-                  <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="card w-96 bg-base-100 hover:shadow-xl rounded-none bg-transparent transition-all duration-300 cursor-pointer">
-              <figure>
-                <img className="h-96" src="/plant-1.png" alt="Shoes" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>Rs. 499.00</p>
-                <div className="card-actions justify-start">
-                  <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div> */}
+          <main className="mt-8 gap-6 flex justify-between flex-wrap">
             {plantsData.map((data, index) => {
-              if (index > 5) {
+              if (index > 4) {
                 return;
               }
               return (
@@ -144,9 +112,18 @@ export default function Home() {
                     <h2 className="card-title">{data.name}</h2>
                     <p>Rs. {data.price}</p>
                     <div className="card-actions justify-start">
-                      <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
-                        Add to Cart
-                      </button>
+                      {isLoggedIn ? (
+                        <button className="btn btn-primary w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80">
+                          Add to Cart
+                        </button>
+                      ) : (
+                        <label
+                          htmlFor="my-modal-4"
+                          className="btn w-40 bg-primary border-primary hover:bg-primary/80 hover:border-primary/80"
+                        >
+                          Add to Cart
+                        </label>
+                      )}
                     </div>
                   </div>
                 </div>
