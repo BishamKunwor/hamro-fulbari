@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <section className="mx-auto max-w-screen-2xl py-10">
+    <section id="about-us" className="mx-auto max-w-screen-2xl py-10">
       <main className="border bg-secondary border-primary p-20 pt-12 px-32 mt-10">
         <h2 className="text-3xl text-primary text-center my-2">ABOUT US</h2>
         <section className="">

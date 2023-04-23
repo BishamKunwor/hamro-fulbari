@@ -215,10 +215,10 @@ export default function NavBar() {
               <a href="/products">Products</a>
             </li>
             <li className="hover:text-primary transition-all duration-300">
-              <a href="">About Us</a>
+              <a href="/#about-us">About Us</a>
             </li>
             <li className="hover:text-primary transition-all duration-300">
-              <a href="">Contact Us</a>
+              <a href="/#contact-us">Contact Us</a>
             </li>
           </ul>
         </nav>
