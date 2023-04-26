@@ -17,9 +17,9 @@ export default function NavBar() {
 
   return (
     <>
-      <section className="bg-primary pt-3">
+      <section className="bg-primary pt-3 px-6 md:px-0">
         <nav className="max-w-screen-2xl mx-auto">
-          <div className="flex justify-between text-sm border-b pb-4 border-b-white/80 textColor">
+          <div className="justify-between text-sm border-b pb-4 border-b-white/80 textColor hidden md:flex">
             <div className="flex gap-4">
               <span className="text-sm">Follow us:</span>
               <a>
@@ -78,7 +78,7 @@ export default function NavBar() {
                 Fulbari
               </div>
             </a>
-            <div className="form-control">
+            <div className="form-control hidden md:flex">
               <div className="input-group">
                 <input
                   type="text"
@@ -205,7 +205,7 @@ export default function NavBar() {
           </main>
         </nav>
       </section>
-      <section className="bg-accent">
+      <section className="bg-accent hidden md:flex">
         <nav className="max-w-screen-2xl mx-auto mt-4">
           <ul className="flex justify-center items-center gap-6 py-2 text-2xl text-black/90 font-medium">
             <li className="hover:text-primary transition-all duration-300">

@@ -185,7 +185,7 @@ export default function Home() {
         <WhyUs />
         <AboutUs />
         <section className="mx-auto max-w-screen-2xl">
-          <main className="flex gap-16">
+          <main className="flex gap-16 flex-wrap px-6 md:px-0">
             <img src="/bordOfDirector.jpeg" alt="" />
             <section>
               <h2 className="text-3xl text-primary text-center my-2">

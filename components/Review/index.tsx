@@ -2,10 +2,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
+import { useEffect, useState } from "react";
 
 export default function Review() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 700);
+  });
   return (
-    <section className="mx-auto max-w-screen-2xl py-10">
+    <section className="mx-auto max-w-screen-2xl py-10 px-6 md:px-0">
       <h2 className="text-3xl text-primary text-center my-2">TESTOMONIALS</h2>
       <main>
         <Swiper
@@ -15,7 +20,7 @@ export default function Review() {
           }}
           modules={[Autoplay, Pagination]}
           spaceBetween={50}
-          slidesPerView={3}
+          slidesPerView={isMobile ? 1 : 3}
           loop={true}
           autoplay={{
             delay: 4000,
