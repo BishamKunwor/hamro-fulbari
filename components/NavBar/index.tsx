@@ -104,7 +104,7 @@ export default function NavBar() {
               </div>
             </div>
             <div className="flex items-center gap-10 textColor">
-              <div className="dropdown text-black cursor-pointer">
+              <div className="dropdown text-black cursor-pointer dropdown-end md:dropdown-bottom">
                 <label
                   tabIndex={0}
                   className="flex items-center cursor-pointer"
@@ -135,7 +135,7 @@ export default function NavBar() {
                 {Object.keys(activeUser).length > 0 ? (
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box"
                   >
                     <li>
                       <a>{activeUser.firstName + " " + activeUser.lastName}</a>

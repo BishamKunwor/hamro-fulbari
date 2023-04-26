@@ -24,7 +24,7 @@ export default function Login() {
   const errorPopup = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="max-w-screen-2xl mx-auto py-16 space-y-4">
+    <section className="max-w-screen-2xl mx-auto py-16 space-y-4 px-6 md:px-0">
       <div
         ref={errorPopup}
         className={`absolute left-0 -top-20 w-full transition-all duration-300`}
@@ -52,7 +52,7 @@ export default function Login() {
         Already register ?
       </h1>
       <main className="flex flex-col md:flex-row justify-center items-stretch gap-12">
-        <div className="border-primary p-5 border w-[600px] bg-secondary">
+        <div className="border-primary p-5 border md:w-[600px] bg-secondary">
           <h2 className="text-2xl uppercase">LOGIN</h2>
           <h3 className="font-medium mt-4">
             By creating an account with our store, you will be able to move
@@ -67,7 +67,7 @@ export default function Login() {
             </a>
           </div>
         </div>
-        <div className="border-primary p-5 border w-[600px] bg-secondary">
+        <div className="border-primary p-5 border md:w-[600px] bg-secondary">
           <h2 className="text-2xl uppercase">LOGIN</h2>
           <h3 className="font-medium mt-4">
             If you have an account with us, please login here:

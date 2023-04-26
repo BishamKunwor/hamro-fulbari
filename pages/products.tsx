@@ -42,7 +42,7 @@ export default function Products() {
   return (
     <>
       <section className="flex max-w-screen-2xl mx-auto gap-10 mb-16">
-        <div className="border px-12 border-primary bg-secondary max-w-xs">
+        <div className="border px-12 border-primary bg-secondary max-w-xs hidden md:block">
           <h2 className="text-2xl text-primary my-2">Products</h2>
           <div className="mt-8">
             <div className="text-xl whitespace-nowrap cursor-pointer mt-2 hover:text-primary transition-all duration-300">
@@ -68,9 +68,9 @@ export default function Products() {
             </div>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full px-6 md:px-0">
           <h2 className="text-3xl text-primary my-2">Products</h2>
-          <main className="flex gap-6 flex-wrap">
+          <main className="flex gap-6 flex-wrap justify-center md:justify-start">
             {plantsData.map((data, index) => {
               return (
                 <div

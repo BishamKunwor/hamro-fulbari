@@ -37,13 +37,13 @@ export default function Cart() {
   };
 
   return (
-    <section className="flex max-w-screen-2xl mx-auto gap-10">
+    <section className="flex max-w-screen-2xl mx-auto gap-10 px-6 md:px-0">
       <div className="w-full">
         <h2 className="text-3xl text-primary my-2">Products</h2>
         <main className="">
           <section className="border border-primary bg-secondary">
-            <div className="grid grid-cols-6 px-12 border-b border-primary py-6">
-              <div className=""></div>
+            <div className="grid grid-cols-4 md:grid-cols-6 px-2 md:px-12 border-b border-primary py-6">
+              <div className="hidden md:flex"></div>
               <div className="text-xl">Product</div>
               <div className="text-xl">Price</div>
               <div className="text-xl">Quantity</div>
@@ -54,10 +54,10 @@ export default function Cart() {
               return (
                 <div
                   key={index}
-                  className="grid grid-cols-6 px-12 border-b border-primary py-6 items-center"
+                  className="grid grid-cols-4 md:grid-cols-6 md:px-12 px-2 border-b border-primary py-6 items-center"
                 >
                   <img
-                    className="aspect-square border border-primary w-24"
+                    className="aspect-square hidden md:flex border border-primary w-24"
                     src={data.imgUrl}
                     alt=""
                   />
@@ -120,7 +120,7 @@ export default function Cart() {
                     onClick={() => {
                       handleItemRemove(data);
                     }}
-                    className="cursor-pointer"
+                    className="cursor-pointer hidden md:flex"
                     width="40"
                     height="40"
                     viewBox="0 0 40 40"
@@ -160,7 +160,7 @@ export default function Cart() {
               );
             })}
 
-            <div className="px-12 py-6">
+            <div className="px-2 md:px-12 py-6">
               <div className="flex items-center gap-8">
                 <input
                   type="text"
