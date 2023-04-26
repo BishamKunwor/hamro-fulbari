@@ -71,8 +71,8 @@ export default function ProductDetails() {
         </label>
       </section>
       {activeDetails && (
-        <section className="mx-auto max-w-screen-2xl my-10">
-          <div className="flex gap-16">
+        <section className="mx-auto max-w-screen-2xl my-10 px-6 md:px-0">
+          <div className="flex gap-16 flex-wrap md:flex-nowrap">
             <img
               src={activeDetails.imgUrl}
               className="border border-primary aspect-square w-full"
@@ -136,7 +136,7 @@ export default function ProductDetails() {
           </div>
           <div className="mt-16">
             <h2 className="text-3xl text-primary">RELATED PLANTS</h2>
-            <div className="flex gap-16 my-10">
+            <div className="flex gap-16 my-10 flex-wrap justify-center md:flex-nowrap md:justify-start">
               {plantsData.map((data, index) => {
                 if (index > 4) {
                   return;
