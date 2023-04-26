@@ -1,10 +1,10 @@
 export default function WhyUs() {
   return (
-    <section className="mx-auto max-w-screen-2xl py-10">
+    <section className="mx-auto max-w-screen-2xl py-10 px-6 md:px-0">
       <h2 className="text-3xl text-primary text-center my-2">
         Why Hamro Fulbari?
       </h2>
-      <main className="border bg-secondary border-primary p-20 flex justify-between px-32 mt-10">
+      <main className="border bg-secondary border-primary p-20 flex justify-between flex-wrap gap-8 mg:gap-0 md:px-32 px-6 mt-10">
         <div className="flex gap-8 flex-col">
           <img src="/certificate.png" className="aspect-square w-24" alt="" />
           <div className="flex gap-2 flex-col">

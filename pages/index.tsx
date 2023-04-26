@@ -57,7 +57,7 @@ export default function Home() {
               alt=""
               className="w-full h-full object-center absolute object-cover"
             />
-            <div className="relative text-white p-10 flex flex-col gap-8">
+            <div className="relative text-white md:p-10 p-4 flex flex-col gap-8">
               <h1 className="text-7xl font-bold">Welcome to Hamro Fulbari</h1>
               <label className="text-3xl">
                 It’s time to grow your
@@ -98,7 +98,7 @@ export default function Home() {
           <h2 className="text-3xl text-primary text-center my-2">
             New Arrivals plants
           </h2>
-          <main className="mt-8 gap-6 flex justify-between flex-wrap">
+          <main className="mt-8 gap-6 flex justify-center md:justify-between flex-wrap">
             {plantsData.map((data, index) => {
               if (index > 4) {
                 return;
@@ -155,7 +155,7 @@ export default function Home() {
             </a>
           </div>
         </section>
-        <section className="mx-auto max-w-screen-2xl py-10">
+        <section className="mx-auto max-w-screen-2xl py-10 px-6">
           <h2 className="text-3xl text-primary text-center my-2">
             Products Categories
           </h2>

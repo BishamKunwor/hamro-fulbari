@@ -1,7 +1,10 @@
 export default function AboutUs() {
   return (
-    <section id="about-us" className="mx-auto max-w-screen-2xl py-10">
-      <main className="border bg-secondary border-primary p-20 pt-12 px-32 mt-10">
+    <section
+      id="about-us"
+      className="mx-auto max-w-screen-2xl py-10 px-6 md:px-0"
+    >
+      <main className="border bg-secondary border-primary p-20 pt-12 md:px-32 px-6 mt-10">
         <h2 className="text-3xl text-primary text-center my-2">ABOUT US</h2>
         <section className="">
           <p className="text-center border-b border-primary pb-8">
@@ -11,7 +14,7 @@ export default function AboutUs() {
             along with an affordable price range, we have been proving that the
             satisfaction of customers is our key to success.
           </p>
-          <div className="mt-12 flex justify-between">
+          <div className="mt-12 flex justify-between flex-wrap gap-8 md:gap-0">
             <div className="flex gap-4 items-center">
               <svg
                 width="40"
