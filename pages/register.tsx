@@ -7,7 +7,7 @@ export default function RegisterAccount() {
     addDefaultDbDatas();
   }, []);
   return (
-    <section className="max-w-screen-2xl mx-auto py-10 space-y-4 px-6 md:px-0">
+    <section className="max-w-screen-2xl md:mx-auto py-10 space-y-4 px-6 md:px-0">
       <h1 className="text-4xl text-center text-primary capitalize">
         Create an Account
       </h1>
