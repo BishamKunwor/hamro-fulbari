@@ -159,7 +159,7 @@ export default function Home() {
           <h2 className="text-3xl text-primary text-center my-2">
             Products Categories
           </h2>
-          <main className="flex flex-wrap gap-12 pt-12">
+          <main className="flex place-content-center flex-wrap gap-12 pt-12">
             {Array.from({ length: 5 }).map((data, index) => {
               return (
                 <div key={index} className="max-w-md space-y-4">
